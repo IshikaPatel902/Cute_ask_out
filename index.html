@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Proposal 💕</title>
+    <link rel="icon" href="image/gif1.gif" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+    <div class="circle5"></div>
+    <div class="circle6"></div>
+    <div class="circle7"></div>
+    <div class="circle8"></div>
+
+    <!-- Floating hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Popup message -->
+    <div class="popup" id="popup">
+        <span id="popupText">please pooki 🥺</span>
+    </div>
+
+    <div class="wrapper">
+        <div class="content"></div>
+        <h2 class="question">Mr. Shantanu Varkat, will you go out on a date with me? 🥺💖✨</h2>
+        <img class="gif" src="image/gif1.gif" alt="gif" />
+
+        <div class="btn-grp">
+            <button onclick="yesClicked()" class="yes-btn">Yes 💗</button>
+            <button class="no-btn" id="noBtn" onmouseover="noHover(event)" onmousemove="moveNoBtn(event)">No 😾</button>
+        </div>
+
+        <div class="audio">
+            <div class="audio-btn">
+                <img id="playPauseButton" onclick="togglePlay()" src="image/play.png" alt="">
+                <audio src="audio/apt.mp3" id="music" autoplay></audio>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

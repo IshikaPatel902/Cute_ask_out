@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    background-image: linear-gradient(rgb(255, 156, 156), rgb(119, 233, 253));
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+ 
+/* ---- Animated Circles ---- */
+.circle1 {
+    position: fixed; top: 5%; left: 20%;
+    width: clamp(4em, 9vw, 9em); height: clamp(4em, 9vw, 9em);
+    border-radius: 30%;
+    box-shadow: 0 0 50px #48c0d8;
+    background: linear-gradient(-25deg, #48b2d8, #41c4f4);
+    animation: circle1Animate 10s infinite;
+}
+@keyframes circle1Animate { 50% { left: 33%; top: 4%; scale: 1.11; } }
+ 
+.circle2 {
+    position: fixed; bottom: 5%; right: 30%;
+    width: clamp(6em, 14vw, 14em); height: clamp(6em, 14vw, 14em);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #5648d8;
+    background: linear-gradient(-25deg, #5648d8, #8641f4);
+    animation: circle2Animate 4s infinite;
+}
+@keyframes circle2Animate { 50% { bottom: 10%; right: 20%; } }
+ 
+.circle3 {
+    position: fixed; top: 0%; left: 80%;
+    width: clamp(5em, 12vw, 12em); height: clamp(5em, 12vw, 12em);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #d848bb;
+    background: linear-gradient(-25deg, #d848d1, #f441e2);
+    animation: circle3Animate 14s infinite;
+}
+@keyframes circle3Animate { 50% { top: 3%; left: 85%; scale: 1.1; } }
+ 
+.circle4 {
+    position: fixed; bottom: 15%; left: 10%;
+    width: clamp(4em, 10vw, 10em); height: clamp(4em, 10vw, 10em);
+    border-radius: 45%;
+    box-shadow: 0 0 50px #d8488b;
+    background: linear-gradient(-25deg, #d8487d, #f44195);
+    animation: circle4Animate 14s infinite;
+}
+@keyframes circle4Animate { 50% { bottom: 6%; left: 5%; } }
+ 
+.circle5 {
+    position: fixed; bottom: 15%; right: 10%;
+    width: clamp(2em, 5vw, 5em); height: clamp(2em, 5vw, 5em);
+    border-radius: 45%;
+    box-shadow: 0 0 40px #cad848;
+    background: linear-gradient(-25deg, #c7d848, #f4f441);
+    animation: circle5Animate 10s infinite;
+}
+@keyframes circle5Animate { 50% { bottom: 6%; right: 5%; } }
+ 
+.circle6 {
+    position: fixed; bottom: 50%; left: 10%;
+    width: clamp(2em, 5vw, 5em); height: clamp(2em, 5vw, 5em);
+    border-radius: 45%;
+    box-shadow: 0 0 40px #56d848;
+    background: linear-gradient(-25deg, #48d86a, #41f468);
+    animation: circle6Animate 4s infinite;
+}
+@keyframes circle6Animate { 50% { bottom: 60%; left: 14%; } }
+ 
+.circle7 {
+    position: fixed; top: 35%; right: 10%;
+    width: clamp(3em, 7vw, 7em); height: clamp(3em, 7vw, 7em);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #48d1d8;
+    background: linear-gradient(-25deg, #48d8d8, #41c4f4);
+    animation: circle7Animate 5s infinite;
+}
+@keyframes circle7Animate { 50% { top: 45%; right: 15%; } }
+ 
+.circle8 {
+    position: fixed; bottom: 45%; left: 40%;
+    width: clamp(3em, 7vw, 7em); height: clamp(3em, 7vw, 7em);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #d1d848;
+    background: linear-gradient(-25deg, #d8d648, #e8f441);
+    animation: circle8Animate 8s infinite;
+}
+@keyframes circle8Animate { 50% { bottom: 40%; left: 35%; scale: .8; } }
+ 
+/* ---- Popup Message ---- */
+.popup {
+    position: fixed;
+    background: linear-gradient(135deg, #fff0f8, #ffe6f0);
+    border: 2px solid #ff85c2;
+    border-radius: 20px;
+    padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 18px);
+    font-family: cursive;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    color: #d63384;
+    box-shadow: 0 4px 20px rgba(255, 100, 160, 0.4);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 9999;
+    white-space: nowrap;
+    max-width: 90vw;
+}
+.popup::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 8px 0 8px;
+    border-style: solid;
+    border-color: #ff85c2 transparent transparent transparent;
+}
+.popup.show {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+}
+ 
+/* ---- Floating Hearts ---- */
+.hearts-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+    0%   { bottom: -50px; opacity: 1; }
+    100% { bottom: 110vh;  opacity: 0; }
+}
+ 
+/* ---- Main Wrapper ---- */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff1a;
+    backdrop-filter: blur(3px);
+    padding: clamp(10px, 3vh, 40px) clamp(10px, 3vw, 40px);
+    gap: clamp(4px, 1.5vh, 12px);
+}
+ 
+.wrapper img.gif {
+    height: clamp(80px, 18vw, 180px);
+    width:  clamp(80px, 18vw, 180px);
+    object-fit: contain;
+}
+ 
+/* ---- Question ---- */
+h2.question {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: clamp(14px, 3.2vw, 30px);
+    word-spacing: clamp(2px, 1vw, 10px);
+    color: white;
+    text-shadow: 0px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(255,100,180,0.5);
+    margin: clamp(6px, 1.5vh, 15px) clamp(10px, 3vw, 20px);
+    text-align: center;
+    line-height: 1.5;
+    max-width: min(700px, 90vw);
+}
+ 
+/* ---- Button Group ---- */
+.btn-grp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(10px, 3vw, 30px);
+    width: 100%;
+    margin-top: clamp(10px, 2vh, 30px);
+}
+ 
+button {
+    outline: none;
+    width: clamp(90px, 18vw, 145px);
+    padding: clamp(8px, 1.5vh, 14px) clamp(6px, 1vw, 14px);
+    color: rgba(230, 1, 131, 0.884);
+    background-color: rgb(255, 236, 250);
+    font-size: clamp(0.9em, 2.5vw, 1.3em);
+    cursor: pointer;
+    box-shadow: 0 2px 4px grey;
+    border: 2px solid rgb(240, 117, 117);
+    border-radius: 18px;
+    transition: all 300ms ease-out;
+    font-family: cursive;
+    white-space: nowrap;
+}
+button:hover { color: brown; }
+ 
+.yes-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 18px rgba(255, 100, 160, 0.6);
+}
+ 
+/* No button — JS moves it freely */
+.no-btn {
+    position: relative;
+    cursor: not-allowed;
+    transition: left 0.12s ease, top 0.12s ease;
+}
+ 
+/* ---- Audio ---- */
+.audio {
+    margin-top: clamp(6px, 1.5vh, 16px);
+}
+.audio-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+}
+.audio-btn img {
+    height: clamp(28px, 5vw, 44px);
+    width:  clamp(28px, 5vw, 44px);
+    cursor: pointer;
+    transition: all 200ms;
+    padding: 0;
+    margin: 0;
+}
+.audio-btn img:hover { scale: 1.1; }
+ 
+/* ---- Tiny screens (phones < 400px) ---- */
+@media only screen and (max-width: 400px) {
+    h2.question { font-size: 13px; word-spacing: 2px; }
+    .wrapper img.gif { height: 80px; width: 80px; }
+    button { width: 85px; font-size: 0.85em; }
+}
+ 
+/* ---- Short / half-height windows ---- */
+@media only screen and (max-height: 500px) {
+    .wrapper { gap: 4px; padding: 8px; }
+    .wrapper img.gif { height: 70px; width: 70px; }
+    h2.question { font-size: clamp(11px, 2.5vw, 18px); margin: 4px 10px; }
+    button { padding: 6px 10px; font-size: 0.9em; }
+    .audio-btn img { height: 26px; width: 26px; }
+    .btn-grp { margin-top: 6px; }
+    .circle2, .circle4, .circle8 { display: none; }
+}
+ 
+@media only screen and (max-height: 350px) {
+    .wrapper img.gif { display: none; }
+    h2.question { font-size: 11px; }
+    .circle1, .circle3, .circle5, .circle6, .circle7 { display: none; }
+}
